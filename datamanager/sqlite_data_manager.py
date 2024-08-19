@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models import User, Movie, Base
-from data_manager_interface import DataManagerInterface
+from datamanager.data_manager_interface import DataManagerInterface
 
 
 class SQLiteDataManager(DataManagerInterface):
@@ -59,8 +59,9 @@ class SQLiteDataManager(DataManagerInterface):
         new_user = User(name=user.name)
         session.add(new_user)
         session.commit()
+        new_user_id = new_user.id
         session.close()
-        return new_user.id
+        return new_user_id
 
     def add_movie(self, movie, user_id):
         """
