@@ -4,8 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78b07323-4636-4ef6-a2a2-069dc8e64962" name="Changes" comment="Improve file structure&#10;Add movies.db&#10;Add test to check crud">
-      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+    <list default="true" id="78b07323-4636-4ef6-a2a2-069dc8e64962" name="Changes" comment="Improve file structure&#10;Add app.py&#10;Add moviwebapp new db for app">
+      <change afterPath="$PROJECT_DIR$/templates/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/add_movie.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/add_user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/update_movie.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user_movies.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datamanager/sqlite_data_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/datamanager/sqlite_data_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moviwebapp.db" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,32 +27,34 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2ktVYNIyrrtkLBDRjBpLNYvqZcr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Python.app.executor": "Run",
-    "Python.datamanager.executor": "Run",
-    "Python.sqlite_data_manager.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.datamanager.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sqlite_data_manager.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\OkanS\PycharmProjects\moviweb_app\datamanager" />
@@ -117,13 +130,30 @@
       <option name="project" value="LOCAL" />
       <updated>1724105111207</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Improve file structure&#10;Add app.py&#10;Add moviwebapp new db for app">
+      <option name="closed" value="true" />
+      <created>1724105474331</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1724105474331</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Improve file structure&#10;Add app.py&#10;Add moviwebapp new db for app">
+      <option name="closed" value="true" />
+      <created>1724105483404</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1724105483404</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add data manager interface" />
     <MESSAGE value="Add sqlite data manager &#10;Add models for movies and users&#10;Add docstrings with ai" />
     <MESSAGE value="Improve file structure&#10;Add movies.db&#10;Add test to check crud" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improve file structure&#10;Add movies.db&#10;Add test to check crud" />
+    <MESSAGE value="Improve file structure&#10;Add app.py&#10;Add moviwebapp new db for app" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improve file structure&#10;Add app.py&#10;Add moviwebapp new db for app" />
   </component>
 </project>

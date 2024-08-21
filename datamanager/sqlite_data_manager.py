@@ -32,6 +32,18 @@ class SQLiteDataManager(DataManagerInterface):
         session.close()
         return users
 
+    def get_user(self, user_id):
+        """
+        Retrieve a single user by ID.
+
+        :param user_id: ID of the user to retrieve.
+        :return: User object or None if not found.
+        """
+        session = self.Session()
+        user = session.query(User).filter_by(id=user_id).first()
+        session.close()
+        return user
+
     def get_user_movies(self, user_id):
         """
         Retrieve all movies associated with a specific user.
@@ -41,10 +53,7 @@ class SQLiteDataManager(DataManagerInterface):
         """
         session = self.Session()
         user = session.query(User).filter_by(id=user_id).first()
-        if user:
-            movies = user.movies
-        else:
-            movies = []
+        movies = user.movies if user else []
         session.close()
         return movies
 
@@ -117,3 +126,15 @@ class SQLiteDataManager(DataManagerInterface):
             session.delete(movie)
             session.commit()
         session.close()
+
+    def get_movie(self, movie_id):
+        """
+        Retrieve a single movie by ID.
+
+        :param movie_id: ID of the movie to retrieve.
+        :return: Movie object or None if not found.
+        """
+        session = self.Session()
+        movie = session.query(Movie).filter_by(id=movie_id).first()
+        session.close()
+        return movie
