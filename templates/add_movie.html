@@ -1,16 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Add New Movie</h2>
-    <form action="{{ url_for('add_movie', user_id=user_id) }}" method="POST">
-        <label for="name">Movie Name:</label>
-        <input type="text" id="name" name="name" required><br>
-        <label for="director">Director:</label>
-        <input type="text" id="director" name="director" required><br>
-        <label for="year">Year:</label>
-        <input type="number" id="year" name="year" required><br>
-        <label for="rating">Rating:</label>
-        <input type="number" id="rating" name="rating" step="0.1" required><br>
+    <h1>Add a Movie for {{ user.name }}</h1>
+    <form action="{{ url_for('add_movie', user_id=user.id) }}" method="post">
+        <label for="title">Movie Title:</label>
+        <input type="text" id="title" name="title" required>
         <button type="submit">Add Movie</button>
     </form>
 {% endblock %}
