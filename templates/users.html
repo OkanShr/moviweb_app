@@ -2,12 +2,15 @@
 
 {% block content %}
     <h2>All Users</h2>
-    <ul>
+    <ul style="list-style-type:none; padding:0;">
         {% for user in users %}
-            <li><a href="{{ url_for('user_movies', user_id=user.id) }}">
-                {{ user.name }}</a></li>
+            <li style="margin-bottom: 1rem;">
+                <a href="{{ url_for('user_movies', user_id=user.id) }}"
+                   style="color: rgb(10, 34, 57); text-decoration: none;">
+                    {{ user.name }}
+                </a>
+            </li>
         {% endfor %}
     </ul>
-    <a href="{{ url_for('add_user') }}">Add New User</a>
+    <a href="{{ url_for('add_user') }}" style="color: rgb(83, 162, 190); text-decoration: none;">Add New User</a>
 {% endblock %}
-

@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78b07323-4636-4ef6-a2a2-069dc8e64962" name="Changes" comment="Improve file structure&#10;Add 404 page&#10;Add template html files&#10;Test api">
+    <list default="true" id="78b07323-4636-4ef6-a2a2-069dc8e64962" name="Changes" comment="Fix user_id undefined">
+      <change afterPath="$PROJECT_DIR$/static/css/tailwind.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/moviwebapp.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/moviwebapp.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/add_movie.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_movie.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/add_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/update_movie.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/update_movie.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user_movies.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user_movies.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724251056418</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fix user_id undefined">
+      <option name="closed" value="true" />
+      <created>1724252881763</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1724252881763</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -152,6 +168,7 @@
     <MESSAGE value="Improve file structure&#10;Add movies.db&#10;Add test to check crud" />
     <MESSAGE value="Improve file structure&#10;Add app.py&#10;Add moviwebapp new db for app" />
     <MESSAGE value="Improve file structure&#10;Add 404 page&#10;Add template html files&#10;Test api" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improve file structure&#10;Add 404 page&#10;Add template html files&#10;Test api" />
+    <MESSAGE value="Fix user_id undefined" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix user_id undefined" />
   </component>
 </project>
