@@ -4,55 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: rgb(238, 229, 233);
-            color: rgb(10, 34, 57);
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: rgb(83, 162, 190);
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            margin: 0 1rem;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        main {
-            padding: 2rem;
-            max-width: 1200px;
-            margin: auto;
-        }
-        @media (max-width: 768px) {
-            main {
-                padding: 1rem;
-            }
-            nav {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+    /* Custom colors */
+    .bg-custom-dark { background-color: rgb(40, 75, 99); }
+    .bg-custom-mid { background-color: rgb(45, 17, 21); }
+    .bg-custom-light { background-color: rgb(188, 184, 177); }
+    .bg-custom-light-opacity { background-color: rgba(188, 184, 177, 0.8); }
+    .text-custom-dark { color: rgb(28, 33, 33); }
+    .text-custom-mid { color: rgb(139, 98, 32); }
+    .text-custom-light { color: rgb(224, 175, 160); }
+</style>
 </head>
-<body>
-    <header>
-        <h1>MovieWeb App</h1>
-        <nav>
-            <a href="{{ url_for('home') }}">Home</a> |
-            <a href="{{ url_for('list_users') }}">Users</a>
-        </nav>
+<body class="bg-custom-light text-custom-dark font-sans">
+    <header class="bg-custom-mid text-custom-light py-4">
+        <div class="container mx-auto flex flex-row items-center">
+            <h1 class="text-3xl font-bold flex-grow text-left">MovieWeb App</h1>
+            <nav class="flex-grow text-center">
+                <a href="{{ url_for('home') }}" class="hover:underline mx-2">Home</a>
+                <a href="{{ url_for('users_bp.list_users') }}" class="hover:underline mx-2">Users</a>
+            </nav>
+        </div>
     </header>
-    <main>
+    <main class="container mx-auto p-4">
         {% block content %}{% endblock %}
     </main>
 </body>

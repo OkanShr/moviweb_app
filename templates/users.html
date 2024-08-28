@@ -1,16 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>All Users</h2>
-    <ul style="list-style-type:none; padding:0;">
+<div class="flex items-center space-x-4">
+    <h2 class="text-2xl font-bold mt-2">All Users</h2>
+
+    <a href="{{ url_for('users_bp.add_user') }}"
+       class="bg-custom-mid text-white hover:bg-custom-dark rounded-lg px-4 py-2 mt-4 block transition">
+       Add New User
+    </a>
+</div>
+
+    <ul class="list-none mt-4">
         {% for user in users %}
-            <li style="margin-bottom: 1rem;">
-                <a href="{{ url_for('user_movies', user_id=user.id) }}"
-                   style="color: rgb(10, 34, 57); text-decoration: none;">
-                    {{ user.name }}
+            <li class="mb-2">
+                <a href="{{ url_for('users_bp.user_movies', user_id=user.id) }}"
+                   class="flex items-center p-4 bg-white shadow rounded-lg hover:bg-gray-100 transition">
+                    <!-- Image on the left side -->
+                    <img src="/static/assets/boy.png" alt="{{ user.name }}" class="w-12 h-12 rounded-full mr-4">
+
+                    <!-- User information on the right side -->
+                    <div class="flex-1">
+                        <p class="text-custom-dark font-bold text-lg">
+                            {{ user.name }} {{ user.lastname }}
+                        </p>
+                    </div>
                 </a>
             </li>
         {% endfor %}
     </ul>
-    <a href="{{ url_for('add_user') }}" style="color: rgb(83, 162, 190); text-decoration: none;">Add New User</a>
 {% endblock %}

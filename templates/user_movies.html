@@ -1,17 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Movies of {{ user.name }}</h2>
-    <ul style="list-style-type:none; padding:0;">
+    <div class="flex items-center">
+        <h2 class="text-2xl font-bold mr-3">Movies of {{ user.name }}</h2>
+        <a href="{{ url_for('users_bp.add_movie', user_id=user.id) }}" class="bg-custom-mid text-white px-4 py-2 rounded hover:bg-custom-dark">Add Movie</a>
+    </div>
+
+    <ul class="list-none mt-4 flex flex-wrap gap-4">
         {% for movie in movies %}
-            <li style="margin-bottom: 1rem;">
-                <span>{{ movie.name }} ({{ movie.year }}) - {{ movie.director }} - Rating: {{ movie.rating }}</span>
-                <form action="{{ url_for('delete_movie', user_id=user.id, movie_id=movie.id) }}" method="POST" style="display:inline;">
-                    <button type="submit" style="background-color: rgb(83, 162, 190); color: white; border: none; cursor: pointer;">Delete</button>
-                </form>
-                <a href="{{ url_for('update_movie', user_id=user.id, movie_id=movie.id) }}" style="color: rgb(83, 162, 190); text-decoration: none;">Update</a>
+            <li class="flex flex-col items-center mb-4 w-64 bg-custom-light shadow-lg rounded-lg p-4 transition-colors duration-200">
+                <img src="{{ movie.poster }}" alt="Movie Poster" class="block mb-2 rounded-xl">
+                <div class="text-center flex flex-col">
+                    <span>{{ movie.name }} ({{ movie.year }})</span>
+                    <span class="text-gray-600">{{ movie.director.name }}</span>
+                    <span>IMDB: {{ movie.rating }}</span>
+                </div>
+                <div class="flex mt-2 justify-center">
+                    <form action="{{ url_for('users_bp.delete_movie', user_id=user.id, movie_id=movie.id) }}" method="POST" class="inline-block">
+                        <button type="submit" class="bg-custom-mid text-white px-2 py-1 rounded hover:bg-custom-dark">Delete</button>
+                    </form>
+                    <a href="{{ url_for('movies_bp.update_movie', user_id=user.id, movie_id=movie.id) }}" class="text-custom-mid hover:underline ml-2">Update</a>
+                </div>
             </li>
         {% endfor %}
     </ul>
-    <a href="{{ url_for('add_movie', user_id=user.id) }}" style="color: rgb(83, 162, 190); text-decoration: none;">Add New Movie</a>
 {% endblock %}

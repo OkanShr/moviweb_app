@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Add New User</h2>
-    <form action="{{ url_for('add_user') }}" method="POST">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
-        <button type="submit" style="background-color: rgb(83, 162, 190); color: white; border: none; cursor: pointer;">Add User</button>
+    <h2 class="text-2xl font-bold">Add New User</h2>
+    <form action="{{ url_for('users_bp.add_user') }}" method="POST" class="mt-4">
+        <label for="name" class="block">Name:</label>
+        <input type="text" id="name" name="name" required class="border border-gray-300 p-2 w-full rounded">
+        <label for="lastname" class="block">Last Name:</label>
+        <input type="text" id="lastname"
+               name="lastname" required class="border border-gray-300 p-2 w-full rounded">
+        <button type="submit" class="bg-custom-mid text-white px-4 py-2 rounded hover:bg-custom-dark mt-4">Add User</button>
     </form>
 {% endblock %}
