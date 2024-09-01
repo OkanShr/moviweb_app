@@ -4,28 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78b07323-4636-4ef6-a2a2-069dc8e64962" name="Changes" comment="Base Html CSS update">
-      <change afterPath="$PROJECT_DIR$/blueprints/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blueprints/movies.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blueprints/reviews.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blueprints/users.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/boy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/woman.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/utils.py" afterDir="false" />
+    <list default="true" id="78b07323-4636-4ef6-a2a2-069dc8e64962" name="Changes" comment="CSS changes&#10;Crud bug fixing&#10;Add Reviews and Directors&#10;Reformat code">
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/edit_review.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/movie_details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datamanager/data_manager_interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/datamanager/data_manager_interface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blueprints/movies.py" beforeDir="false" afterPath="$PROJECT_DIR$/blueprints/movies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blueprints/reviews.py" beforeDir="false" afterPath="$PROJECT_DIR$/blueprints/reviews.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blueprints/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/blueprints/users.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datamanager/sqlite_data_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/datamanager/sqlite_data_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/moviwebapp.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/static/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/add_movie.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_movie.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/add_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_user.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/update_movie.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/update_movie.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/user_movies.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user_movies.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -181,7 +180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724702292213</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="CSS changes&#10;Crud bug fixing&#10;Add Reviews and Directors&#10;Reformat code">
+      <option name="closed" value="true" />
+      <created>1724876485878</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1724876485878</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -192,6 +199,7 @@
     <MESSAGE value="Improve file structure&#10;Add 404 page&#10;Add template html files&#10;Test api" />
     <MESSAGE value="Fix user_id undefined" />
     <MESSAGE value="Base Html CSS update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Base Html CSS update" />
+    <MESSAGE value="CSS changes&#10;Crud bug fixing&#10;Add Reviews and Directors&#10;Reformat code" />
+    <option name="LAST_COMMIT_MESSAGE" value="CSS changes&#10;Crud bug fixing&#10;Add Reviews and Directors&#10;Reformat code" />
   </component>
 </project>

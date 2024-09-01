@@ -55,11 +55,12 @@ def add_movie(user_id):
                 data_manager.add_director(director)
 
             movie = Movie(
-                name=movie_data.get('Title'),
+                title=movie_data.get('Title'),
                 director_id=director.id,
                 year=movie_data.get('Year'),
                 rating=float(movie_data.get('imdbRating')),
                 poster=movie_data.get('Poster'),
+                plot=movie_data.get('Plot'),
                 user_id=user_id
             )
 

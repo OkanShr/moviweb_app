@@ -57,7 +57,7 @@ class SQLiteDataManager(DataManagerInterface):
         try:
             user = session.query(User).filter_by(id=user_id).first()
             if user:
-                # Eager load the related Director objects
+                # Eager load the related Director objects helped with error
                 movies = session.query(Movie).options(
                     joinedload(Movie.director)).filter_by(
                     user_id=user_id).all()
@@ -98,15 +98,16 @@ class SQLiteDataManager(DataManagerInterface):
 
             # Create new movie
             new_movie = Movie(
-                name=movie.name,
+                title=movie.title,
                 director_id=director_id,
                 year=movie.year,
                 rating=movie.rating,
                 user_id=user_id,
-                poster=movie.poster
+                poster=movie.poster,
+                plot=movie.plot
             )
             session.add(new_movie)
-            session.commit()  # Commit to save the movie
+            session.commit()
             return new_movie.id
         except ValueError as ve:
             print(f"ValueError: {ve}")
@@ -126,14 +127,29 @@ class SQLiteDataManager(DataManagerInterface):
         :param movie: Movie object containing updated details.
         """
         session = self.Session()
-        existing_movie = session.query(Movie).filter_by(id=movie.id).first()
-        if existing_movie:
-            existing_movie.name = movie.name
-            existing_movie.director = movie.director
-            existing_movie.year = movie.year
-            existing_movie.rating = movie.rating
-            session.commit()
-        session.close()
+        try:
+            existing_movie = session.query(Movie).filter_by(
+                id=movie.id).first()
+            if existing_movie:
+
+                existing_movie.title = movie.title
+                existing_movie.director_id = movie.director_id
+                existing_movie.year = movie.year
+                existing_movie.rating = movie.rating
+                existing_movie.poster = movie.poster
+                existing_movie.plot = movie.plot
+
+                session.commit()
+            else:
+                print(f"Movie with ID {movie.id} not found.")
+                return False
+        except Exception as e:
+            print(f"Error updating movie: {e}")
+            session.rollback()  # Rollback in case of an error
+            return False
+        finally:
+            session.close()
+        return True
 
     def delete_movie(self, movie_id):
         """
@@ -142,11 +158,27 @@ class SQLiteDataManager(DataManagerInterface):
         :param movie_id: ID of the movie to be deleted.
         """
         session = self.Session()
-        movie = session.query(Movie).filter_by(id=movie_id).first()
-        if movie:
-            session.delete(movie)
+
+        # Get the movie to be deleted
+        movie = session.query(Movie).get(movie_id)
+
+        if not movie:
+            raise ValueError(f"Movie with ID {movie_id} does not exist.")
+
+        # Delete associated reviews
+        session.query(Review).filter_by(movie_id=movie_id).delete(
+            synchronize_session=False)
+
+        # Delete the movie
+        session.delete(movie)
+
+        try:
             session.commit()
-        session.close()
+        except Exception as e:
+            session.rollback()
+            raise e
+        finally:
+            session.close()
 
     def get_movie(self, movie_id):
         """
@@ -156,7 +188,8 @@ class SQLiteDataManager(DataManagerInterface):
         :return: Movie object or None if not found.
         """
         session = self.Session()
-        movie = session.query(Movie).filter_by(id=movie_id).first()
+        movie = session.query(Movie).options(
+            joinedload(Movie.director)).filter_by(id=movie_id).first()
         session.close()
         return movie
 
@@ -252,7 +285,8 @@ class SQLiteDataManager(DataManagerInterface):
         :return: Review object.
         """
         session = self.Session()
-        review = session.query(Review).filter_by(id=review_id).first()
+        review = session.query(Review).options(joinedload(Review.user)).get(
+            review_id)
         session.close()
         return review
 
@@ -263,7 +297,8 @@ class SQLiteDataManager(DataManagerInterface):
         :return: A list of Review objects.
         """
         session = self.Session()
-        reviews = session.query(Review).filter_by(movie_id=movie_id).all()
+        reviews = session.query(Review).options(
+            joinedload(Review.user)).filter_by(movie_id=movie_id).all()
         session.close()
         return reviews
 
@@ -273,12 +308,18 @@ class SQLiteDataManager(DataManagerInterface):
         :param review: Review object with updated data.
         """
         session = self.Session()
-        existing_review = session.query(Review).filter_by(id=review.id).first()
-        if existing_review:
+        try:
+            # Directly update the review in the session
+            existing_review = session.query(Review).filter_by(
+                id=review.id).one()
             existing_review.review_text = review.review_text
             existing_review.rating = review.rating
             session.commit()
-        session.close()
+        except Exception as e:
+            session.rollback()
+            raise e  # Reraise the exception to handle it in the calling code
+        finally:
+            session.close()
 
     def delete_review(self, review_id):
         """

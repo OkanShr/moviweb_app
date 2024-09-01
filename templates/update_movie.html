@@ -4,12 +4,12 @@
     <h2 class="text-2xl font-bold">Update Movie</h2>
     <form action="{{ url_for('movies_bp.update_movie', user_id=user.id, movie_id=movie.id) }}" method="POST" class="mt-4 space-y-4">
         <div>
-            <label for="name" class="block">Movie Name:</label>
-            <input type="text" id="name" name="name" value="{{ movie.name }}" required class="border border-gray-300 p-2 w-full rounded">
+            <label for="title" class="block">Movie Name:</label>
+            <input type="text" id="title" name="title" value="{{ movie.title }}" required class="border border-gray-300 p-2 w-full rounded">
         </div>
         <div>
             <label for="director" class="block">Director:</label>
-            <input type="text" id="director" name="director" value="{{ movie.director }}" required class="border border-gray-300 p-2 w-full rounded">
+            <input type="text" id="director" name="director" value="{{ movie.director.name }}" required class="border border-gray-300 p-2 w-full rounded">
         </div>
         <div>
             <label for="year" class="block">Year:</label>
@@ -19,6 +19,6 @@
             <label for="rating" class="block">Rating:</label>
             <input type="number" id="rating" name="rating" step="0.1" value="{{ movie.rating }}" required class="border border-gray-300 p-2 w-full rounded">
         </div>
-        <button type="submit" class="bg-custom-mid text-white px-4 py-2 rounded hover:bg-custom-dark">Update Movie</button>
+        <button type="submit" class="bg-custom-mid text-white px-4 py-2 rounded hover:bg-black">Update Movie</button>
     </form>
 {% endblock %}

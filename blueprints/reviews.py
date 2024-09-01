@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from datamanager.sqlite_data_manager import SQLiteDataManager
 from models import Review
 
@@ -25,20 +25,33 @@ def movie_reviews(movie_id):
         data_manager.add_review(review)
         return redirect(url_for('reviews_bp.movie_reviews',
                                 movie_id=movie_id))
-    return render_template('movie_reviews.html',
+    return render_template('movie_details.html',
                            movie=movie, reviews=reviews)
 
 
 @reviews_bp.route('/reviews/<int:review_id>/edit', methods=['GET', 'POST'])
 def edit_review(review_id):
     review = data_manager.get_review(review_id)
+
     if request.method == 'POST':
-        review.review_text = request.form['review_text']
-        review.rating = request.form['rating']
-        data_manager.update_review(review)
+        # Get form data
+        review_text = request.form.get('review_text')
+        rating = request.form.get('rating')
+
+        # Update review attributes
+        review.review_text = review_text
+        review.rating = rating
+
+        # Update the review using the data manager
+        try:
+            data_manager.update_review(review)
+            flash('Review updated successfully!', 'success')
+        except Exception as e:
+            flash(f'An error occurred: {e}', 'error')
+
         return redirect(
-            url_for('reviews_bp.movie_reviews',
-                    movie_id=review.movie_id))
+            url_for('reviews_bp.movie_reviews', movie_id=review.movie_id))
+
     return render_template('edit_review.html', review=review)
 
 

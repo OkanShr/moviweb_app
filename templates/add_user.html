@@ -2,7 +2,7 @@
 
 {% block content %}
     <h2 class="text-2xl font-bold">Add New User</h2>
-    <form action="{{ url_for('users_bp.add_user') }}" method="POST" class="mt-4">
+    <form action="{{ url_for('users_bp.add_user') }}" method="POST" class="mt-4 w-80">
         <label for="name" class="block">Name:</label>
         <input type="text" id="name" name="name" required class="border border-gray-300 p-2 w-full rounded">
         <label for="lastname" class="block">Last Name:</label>

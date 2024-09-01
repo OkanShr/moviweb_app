@@ -4,6 +4,7 @@ from blueprints.movies import movies_bp
 from blueprints.reviews import reviews_bp
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'a_very_secret_key'
 
 app.register_blueprint(users_bp)
 app.register_blueprint(movies_bp)

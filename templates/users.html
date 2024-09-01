@@ -10,7 +10,7 @@
     </a>
 </div>
 
-    <ul class="list-none mt-4">
+    <ul class="list-none mt-4 w-1/2">
         {% for user in users %}
             <li class="mb-2">
                 <a href="{{ url_for('users_bp.user_movies', user_id=user.id) }}"

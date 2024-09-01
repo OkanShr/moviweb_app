@@ -7,19 +7,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
     /* Custom colors */
-    .bg-custom-dark { background-color: rgb(40, 75, 99); }
+
     .bg-custom-mid { background-color: rgb(45, 17, 21); }
+    .bg-custom-dark { background-color: rgb(39, 14, 18); }
     .bg-custom-light { background-color: rgb(188, 184, 177); }
-    .bg-custom-light-opacity { background-color: rgba(188, 184, 177, 0.8); }
+    .bg-custom-light-opacity { background-color: rgb(180, 176, 169); }
     .text-custom-dark { color: rgb(28, 33, 33); }
     .text-custom-mid { color: rgb(139, 98, 32); }
     .text-custom-light { color: rgb(224, 175, 160); }
+    .hover\:bg-custom-dark:hover { background-color: rgb(180, 176, 169); }
 </style>
 </head>
 <body class="bg-custom-light text-custom-dark font-sans">
     <header class="bg-custom-mid text-custom-light py-4">
         <div class="container mx-auto flex flex-row items-center">
-            <h1 class="text-3xl font-bold flex-grow text-left">MovieWeb App</h1>
+            <a href="{{ url_for('home') }}" class="text-3xl font-bold flex-grow text-left">
+                MovieWeb App
+            </a>
             <nav class="flex-grow text-center">
                 <a href="{{ url_for('home') }}" class="hover:underline mx-2">Home</a>
                 <a href="{{ url_for('users_bp.list_users') }}" class="hover:underline mx-2">Users</a>

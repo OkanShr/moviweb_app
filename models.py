@@ -60,7 +60,7 @@ class Movie(Base):
 
     Attributes:
         id (int): Unique identifier for the movie.
-        name (str): Name of the movie.
+        title (str): Name of the movie.
         director (str): Director of the movie.
         year (int): Year of release.
         rating (float): Rating of the movie.
@@ -69,11 +69,12 @@ class Movie(Base):
     __tablename__ = 'movies'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String, nullable=False)
+    title = Column(String, nullable=False)
     director_id = Column(Integer, ForeignKey('directors.id'), nullable=False)
     year = Column(String, nullable=False)
     rating = Column(String, nullable=False)
     poster = Column(String)
+    plot = Column(String)
     user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
 
     director = relationship('Director', back_populates='movies')
@@ -82,7 +83,7 @@ class Movie(Base):
 
     def __repr__(self):
         director_name = self.director.name if self.director else "Unknown"
-        return (f"Movie(id={self.id}, name={self.name}, "
+        return (f"Movie(id={self.id}, name={self.title}, "
                 f"director={director_name}, year={self.year}, "
                 f"rating={self.rating})")
 
